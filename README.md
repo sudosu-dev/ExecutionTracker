@@ -118,6 +118,7 @@ function App() {
 // ... your app logic ...
 
 return (
+
 <div>
 {/_ Your application content _/}
 <h1>My Application</h1>
