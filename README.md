@@ -163,9 +163,64 @@ Works in all modern browsers that support:
 #3 : File: api.js Line: 28:12 : Error: Failed to fetch
 ```
 
+## React Debug Panel Component
+
+For React applications, you can use the included `DebugPanel` component to display logs directly in your UI:
+
+```jsx
+import DebugPanel from "./DebugPanel";
+
+function App() {
+  return (
+    <div>
+      {/* Your app content */}
+      <DebugPanel />
+    </div>
+  );
+}
+```
+
+### DebugPanel Features
+
+- **Real-time updates** - Automatically refreshes every 500ms to show new logs
+- **Visual log display** - Shows all logged messages with styling based on log type
+- **Persistent history** - Displays all logs from the current session
+- **Responsive design** - Styled with CSS classes for easy customization
+
+### DebugPanel Structure
+
+The component displays each log entry with:
+
+- **Log ID number** (`#1`, `#2`, etc.)
+- **Log type** (`[log]`, `[error]`)
+- **Message content**
+- **Caller location** (file and line number)
+
+### CSS Classes
+
+The DebugPanel uses these CSS classes for styling:
+
+- `.debug-panel` - Main container
+- `.log` - Individual log entry
+- `.log.log` - Regular log entries
+- `.log.error` - Error log entries
+
+You can customize the appearance by styling these classes in your CSS.
+
+### Example DebugPanel Output
+
+```
+#1 [log] — Hello world!
+File: app.js Line: 15:3
+
+#2 [error] — Something went wrong!
+File: utils.js Line: 42:8
+```
+
 ## Notes
 
 - The location tracker automatically filters out internal ExecutionTracker calls and React DOM calls
 - Colors and styling only appear in browser developer consoles that support CSS styling
 - The `msg` export provides a ready-to-use singleton instance
 - All console methods maintain their original functionality while adding enhanced features
+- The DebugPanel component requires React and updates automatically via polling
